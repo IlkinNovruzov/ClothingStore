@@ -1,0 +1,34 @@
+﻿@model Blog
+<div class="col-lg-6">
+    <form asp-controller="Blog" asp-action="Add" method="post">
+        <div class="card">
+            <div class="card-header"><strong>Blog</strong><small> Form</small></div>
+            <div class="card-body card-block">
+                <div class="form-group">
+                    <label asp-for="Username" class=" form-control-label">Username</label>
+                    <input asp-for="Username" type="text" placeholder="Username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title" class="form-control-label">Title</label>
+                    <input type="text" asp-for="Title" placeholder="Title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image" class=" form-control-label">Image URL</label>
+                    <input type="text" asp-for="Image" placeholder="URL" class="form-control">
+                </div>
+                <div class="form-group">
+                        <div class="form-group">
+                            <label asp-for="Context" class=" form-control-label">Context</label>
+                            <input type="text" asp-for="Context" placeholder="Context" class="form-control">
+                        </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-info btn-block">
+                <span id="payment-button-amount">Add</span>
+                <span id="payment-button-sending" style="display:none;">Sending…</span>
+            </button>
+        </div>
+    </form>
+</div>
+
+
