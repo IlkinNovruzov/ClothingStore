@@ -13,6 +13,7 @@ namespace ClothingShop.Controllers
         }
         public IActionResult Shop()
         {
+            ViewBag.Categories = _context.Categories.ToList();
             return View(_context.Products.Include(x => x.Category).ToList());
         }
     }
