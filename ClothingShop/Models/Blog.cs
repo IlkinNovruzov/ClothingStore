@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ClothingShop.Models
 {
@@ -11,5 +12,7 @@ namespace ClothingShop.Models
         public DateTime DateTime { get; set; }
         public string Title { get; set; }
         public string Context { get; set; }
+        [NotMapped]
+        public IFormFile ImgFile { get; set; }
     }
 }

@@ -18,26 +18,26 @@
     </section>
     <section class="blog-page container">
         <div class="blog-grid row row-cols-1 row-cols-md-2 row-cols-xl-3">
-            @foreach(var item in Model)
+            @foreach (var item in Model)
             {
-            <div class="blog-grid__item">
-                <div class="blog-grid__item-image">
-                    <img loading="lazy" class="h-auto" src="@item.Image" width="450" height="400" alt="" />
+                <div class="blog-grid__item">
+                    <div class="blog-grid__item-image">
+                        <img loading="lazy" class="h-auto" src="~/Site/images/blog/@item.Image" width="450" height="400" alt="" />
+                    </div>
+                    <div class="blog-grid__item-detail">
+                        <div class="blog-grid__item-meta">
+                            <span class="blog-grid__item-meta__author">@item.Username</span>
+                            <span class="blog-grid__item-meta__date">@item.DateTime</span>
+                        </div>
+                        <div class="blog-grid__item-title">
+                            <a href="blog_single.html">@item.Title</a>
+                        </div>
+                        <div class="blog-grid__item-content">
+                            <p>@item.Context</p>
+                            <a asp-controller="Blog" asp-action="BlogDetails" class="readmore-link">Continue Reading</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="blog-grid__item-detail">
-                    <div class="blog-grid__item-meta">
-                        <span class="blog-grid__item-meta__author">@item.Username</span>
-                        <span class="blog-grid__item-meta__date">@item.DateTime</span>
-                    </div>
-                    <div class="blog-grid__item-title">
-                        <a href="blog_single.html">@item.Title</a>
-                    </div>
-                    <div class="blog-grid__item-content">
-                        <p>@item.Context</p>
-                        <a href="blog_single.html" class="readmore-link">Continue Reading</a>
-                    </div>
-                </div>
-            </div>
             }
         </div>
         <p class="mb-1 text-center fw-medium">SHOWING 36 of 497 items</p>
@@ -50,3 +50,4 @@
         </div>
     </section>
 </main>
+

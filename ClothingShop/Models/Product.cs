@@ -10,8 +10,11 @@ namespace ClothingShop.Models
         public string Name { get; set; }
         public string Image { get; set; }
         public decimal Price { get; set; }
+
+        [ForeignKey("Category")]
         public int CatgeoryId { get; set; }
-        [ForeignKey("CategoryId")]
-        public virtual List<Category> Categroies { get; set; }
+        public virtual Category Category { get; set; }
+        [NotMapped]
+        public IFormFile ImgFile { get; set; }
     }
 }

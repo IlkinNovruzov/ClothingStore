@@ -1,7 +1,7 @@
 ﻿@model Blog
 
 <div class="col-lg-6">
-    <form asp-controller="Blog" asp-action="Add" method="post" enctype="multipart/form-data">
+    <form asp-controller="Blog" asp-action="Edit" method="post" enctype="multipart/form-data">
         <div class="card">
             <div class="card-header"><strong>Blog</strong><small> Form</small></div>
             <div class="card-body card-block">
@@ -20,12 +20,12 @@
                 <div class="form-img">
                     <h1>Blog Image</h1>
                     <label class="input-preview" asp-for="ImgFile">
-                        <input type="file" class="input-preview__src" asp-for="ImgFile"/>
+                        <input type="file" class="input-preview__src" asp-for="ImgFile">
                     </label>
                 </div>
 
                 <button type="submit" class="btn btn-lg btn-info btn-block">
-                    <span id="payment-button-amount">Add</span>
+                    <span id="payment-button-amount">Edit</span>
                     <span id="payment-button-sending" style="display:none;">Sending…</span>
                 </button>
             </div>

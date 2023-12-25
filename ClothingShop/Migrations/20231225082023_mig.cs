@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ClothingShop.Migrations
 {
     /// <inheritdoc />
-    public partial class miginit : Migration
+    public partial class mig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -55,36 +55,18 @@ namespace ClothingShop.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CategoryProduct",
-                columns: table => new
-                {
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    CategroiesId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CategoryProduct", x => new { x.CategoryId, x.CategroiesId });
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Categories_CategroiesId",
-                        column: x => x.CategroiesId,
+                        name: "FK_Products_Categories_CatgeoryId",
+                        column: x => x.CatgeoryId,
                         principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CategoryProduct_Products_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CategoryProduct_CategroiesId",
-                table: "CategoryProduct",
-                column: "CategroiesId");
+                name: "IX_Products_CatgeoryId",
+                table: "Products",
+                column: "CatgeoryId");
         }
 
         /// <inheritdoc />
@@ -94,13 +76,10 @@ namespace ClothingShop.Migrations
                 name: "Blogs");
 
             migrationBuilder.DropTable(
-                name: "CategoryProduct");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Categories");
-
-            migrationBuilder.DropTable(
-                name: "Products");
         }
     }
 }

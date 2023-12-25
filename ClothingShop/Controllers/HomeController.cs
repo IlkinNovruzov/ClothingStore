@@ -1,5 +1,6 @@
 ﻿using ClothingShop.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace ClothingShop.Controllers
@@ -16,10 +17,6 @@ namespace ClothingShop.Controllers
             return View();
         }
 
-        public IActionResult Shop()
-        {
-            return View();
-        }
         public IActionResult Blog()
         {
            return View(_context.Blogs.ToList());
