@@ -14,7 +14,7 @@ namespace ClothingShop.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_context.Sliders.ToList());
         }
 
         public IActionResult Blog()
