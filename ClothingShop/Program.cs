@@ -1,4 +1,5 @@
 using ClothingShop.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClothingShop
@@ -14,6 +15,8 @@ namespace ClothingShop
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             builder.Services.AddDbContext<MyDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
+
+            builder.Services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<MyDbContext>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

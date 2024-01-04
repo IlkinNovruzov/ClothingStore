@@ -1,0 +1,21 @@
+﻿@* @using ClothingShop.DTO
+@model AppUserRegister *@
+<div class="mb-4 pb-4"></div>
+<section class="login-register container">
+    <div class="fade show active">
+        <div class="register-form">
+            <form asp-action="ConfirmMail" method="post" class="needs-validation" novalidate>
+                <input name="mail" type="text" class="form-control form-control_gray" value="@TempData["mail"]">
+
+                <div class="form-floating mb-3">
+                    <input name="code" type="text" class="form-control form-control_gray" id="ConCode" placeholder="Code" required>
+                    <label for="ConCode">Code</label>
+                </div>
+
+                <div asp-validation-summary="ModelOnly"></div>
+
+                <button class="btn btn-primary w-100 text-uppercase" type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</section>
