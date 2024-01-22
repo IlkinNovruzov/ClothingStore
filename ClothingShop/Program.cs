@@ -16,7 +16,9 @@ namespace ClothingShop
             builder.Services.AddDbContext<MyDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
 
-            builder.Services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<MyDbContext>();
+            builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<MyDbContext>()
+            .AddDefaultTokenProviders();
+            builder.Services.AddScoped<Extensions.IEmailService,Extensions.EmailSender>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -1,4 +1,5 @@
 ﻿using ClothingShop.DTO;
+using ClothingShop.Extensions;
 using ClothingShop.Models;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity;
@@ -9,9 +10,11 @@ namespace ClothingShop.Controllers
 {
     public class RegisterController : Controller
     {
+        private readonly IEmailService _emailService;
         private readonly UserManager<AppUser> _userManager;
-        public RegisterController(UserManager<AppUser> userManager)
+        public RegisterController(UserManager<AppUser> userManager, IEmailService emailService)
         {
+            _emailService = emailService;
             _userManager = userManager;
         }
         [HttpGet]
@@ -38,22 +41,8 @@ namespace ClothingShop.Controllers
                 var result= await _userManager.CreateAsync(appUser,appUserRegister.Password);
                 if (result.Succeeded)
                 {
-                    var msg = new MimeMessage();
-                    var mailFrom = new MailboxAddress("Admin", "uomostore004@gmail.com");
-                    var mailTo = new MailboxAddress("User", appUser.Email);
-
-                    msg.From.Add(mailFrom);
-                    msg.To.Add(mailTo);
-                    var bodyBuilder=new BodyBuilder();
-                    bodyBuilder.TextBody = "Confirm Code:" + code;
-                    msg.Body=bodyBuilder.ToMessageBody();
-                    msg.Subject = "Project Confirm Code";
-
-                    SmtpClient client=new SmtpClient();
-                    client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("uomostore004@gmail.com", "qgrh mqlg lrni irjh");
-                    client.Send(msg);
-                    client.Disconnect(true);
+                    await _emailService.SendEmailAsync(appUser.Email,"Confirm Email",$"{code}");
+                    
 
                     TempData["mail"] = appUserRegister.Email;
                     return RedirectToAction("ConfirmMail", "ConfirmMail");

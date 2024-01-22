@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClothingShop.Models
 {
-    public class MyDbContext : IdentityDbContext<AppUser>
+    public class MyDbContext : IdentityDbContext<AppUser,AppRole,string>
     {
         public MyDbContext(DbContextOptions options) : base(options)
         {
