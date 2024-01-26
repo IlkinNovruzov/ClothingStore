@@ -1,0 +1,46 @@
+﻿@model List<Slider>
+<div class="swiper-wrapper">
+    @foreach (var item in Model)
+    {
+
+        <div class="swiper-slide full-width_border border-1" style="border-color: #f5e6e0;">
+            <div class="overflow-hidden position-relative h-100">
+                <div class="slideshow-bg" style="background-color: #f5e6e0;">
+                    <img loading="lazy" src="~/Site/images/slideshow-pattern.png" width="1761" height="778" alt="Pattern" class="slideshow-bg__img object-fit-cover" />
+                </div>
+                <!-- <p class="slideshow_markup font-special text-uppercase position-absolute end-0 bottom-0">Summer</p> -->
+                <div class="slideshow-character position-absolute bottom-0 pos_right-center">
+                    <img loading="lazy" src="~/Site/images/@item.Image" width="400" height="733" alt="Woman Fashion 1" class="slideshow-character__img animate animate_fade animate_btt animate_delay-9 h-auto w-auto" />
+                    <div class="character_markup">
+                        <p class="text-uppercase font-sofia fw-bold animate animate_fade animate_rtl animate_delay-10">@item.Title</p>
+                    </div>
+                </div>
+                <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
+                    <h6 class="text_dash text-uppercase text-red fs-base fw-medium animate animate_fade animate_btt animate_delay-3">@item.Name</h6>
+                    <h2 class="text-uppercase h1 fw-normal mb-0 animate animate_fade animate_btt animate_delay-5">@item.Description</h2>
+                    <h2 class="text-uppercase h1 fw-bold animate animate_fade animate_btt animate_delay-5">Womens</h2>
+                    <a href="#" class="btn-link btn-link_lg default-underline text-uppercase fw-medium animate animate_fade animate_btt animate_delay-7">Discover More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- /.slideshow-item -->
+    }
+
+    @*   <div class="swiper-slide full-width_border border-1" style="border-color: #f5e6e0;">
+    <div class="overflow-hidden position-relative h-100">
+    <div class="slideshow-bg" style="background-color: #f5e6e0;">
+    <img loading="lazy" src="~/Site/images/slideshow-pattern.png" width="1761" height="778" alt="Pattern" class="slideshow-bg__img object-fit-cover" />
+    </div>
+    <div class="slideshow-character position-absolute bottom-0 pos_right-center">
+    <img loading="lazy" src="~/Site/images/slideshow-character2.png" width="400" height="690" alt="Woman Fashion 2" class="slideshow-character__img animate animate_fade animate_rtl animate_delay-10 h-auto w-auto" />
+    </div>
+    <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
+    <h6 class="text_dash text-uppercase text-red fs-base fw-medium animate animate_fade animate_btt animate_delay-3">summer</h6>
+    <h2 class="text-uppercase h1 fw-bold animate animate_fade animate_btt animate_delay-3">Hello New Season</h2>
+    <h6 class="text-uppercase mb-5 animate animate_fade animate_btt animate_delay-3">Limited Time Offer - Up to 60% off & Free Shipping</h6>
+    <a href="#" class="btn-link btn-link_lg default-underline text-uppercase fw-medium animate animate_fade animate_btt animate_delay-3">Discover More</a>
+    </div>
+    </div>
+    </div><!-- /.slideshow-item --> *@
+</div><!-- /.slideshow-wrapper js-swiper-slider -->
